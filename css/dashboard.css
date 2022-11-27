@@ -1,0 +1,472 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.dashcontainer {
+    position: relative;
+    width: 90%;
+}
+
+.dashnavigation {
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background: linear-gradient(30deg, #03a9f4, rgb(156, 156, 156));
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.dashnavigation.dashactive {
+    width: 60px;
+}
+
+.dashnavigation ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.dashnavigation ul li {
+    position: relative;
+    width: 100%;
+    list-style: none;
+}
+
+.dashnavigation ul li:hover {
+    background: #03a9f4;
+}
+
+.dashnavigation ul li:nth-child(1) {
+    margin-bottom: 20px;
+}
+
+.dashnavigation ul li:nth-child(1):hover {
+    background: rgb(245, 32, 103);
+}
+
+.dashnavigation ul li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: #fff;
+}
+
+.dashnavigation ul li a .icon,
+.dashnavigation ul li a img {
+    position: relative;
+    display: block;
+    min-width: 65px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+
+.dashnavigation ul li a .icon .fa {
+    color: #fff;
+    font-size: 24px;
+}
+
+.dashnavigation ul li a .title {
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    white-space: nowrap;
+}
+
+.dashmain {
+    position: absolute;
+    width: 100%;
+    left: 300px;
+    background: #f5f5f5;
+    transition: 0.5s;
+}
+
+.dashmain.dashactive {
+    width: calc(100% - 60px);
+    left: 60px;
+}
+
+.dashmain .topbar {
+    width: 100%;
+    background: #fff;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.dashtoggle {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.dashtoggle::before {
+    content: '\f0c9';
+    font-family: FontAwesome;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    line-height: 60px;
+    font-size: 24px;
+    text-align: center;
+    color: #111;
+}
+.dashtoggle::after {
+    content: '\f0c9';
+    font-family: FontAwesome;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    line-height: 60px;
+    font-size: 24px;
+    text-align: center;
+    color: #111;
+}
+
+.user {
+    position: relative;
+    min-width: 50px;
+    height: 50px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.user i {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    font-size: 200%;
+    object-fit: cover;
+}
+
+.cardbox {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+
+.cardbox .card {
+    position: relative;
+    background: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.cardbox .card .numbers {
+    position: relative;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.cardbox .card .cardname {
+    color: #999;
+}
+
+.cardbox .card .iconbox {
+    font-size: 2em;
+    color: #03a9f4;
+}
+
+.details {
+    position: relative;
+    width: calc(100% - 300px);
+    padding: 20px;
+    display: grid;
+    padding-top: 0;
+}
+
+.details .recentorder {
+    position: relative;
+    min-height: 530px;
+    background: #fff;
+    padding: 20px;
+}
+
+.cardheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.cardheader h2 {
+    font-weight: 500;
+}
+
+.btn {
+    position: relative;
+    padding: 5px 10xp;
+    background: #03a9f4;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 2px;
+}
+
+.button {
+    text-decoration: none;
+    padding: 7px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 15px;
+    color: #fff;
+    background: #fc3560;
+}
+
+.button2 {
+    text-decoration: none;
+    padding: 7px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 15px;
+    color: #fff;
+    background: #1fcefe;
+}
+
+.details table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.details table thead thead {
+    font-weight: 600;
+}
+
+.details .recentorder table tr {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.details .recentorder table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.details .recentorder table tbody tr:hover {
+    background: linear-gradient(30deg, #03a9f4, rgb(156, 156, 156));
+    color: #ffffff;
+}
+
+.details .recentorder table tr td {
+    padding: 10px 5px;
+}
+
+.details .recentorder table thead tr td,
+.details .recentorder table tbody tr td {
+    text-align:  center;
+}
+
+
+
+.status {
+    position: relative;
+    padding: 2px 4px;
+    background: #f00;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.delivered {
+    background: #8de02c;
+}
+
+.pending {
+    background: #f9ca3f;
+}
+
+.Rutern {
+    background: #f00;
+}
+
+.inprogress {
+    background: #03a9f4;
+}
+
+.details .recentcustomer {
+    position: relative;
+    min-height: 530px;
+    background: #fff;
+    padding: 30px;
+}
+
+.details .recentcustomer .imgbx {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+}
+
+.details .recentcustomer .imgbx i {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 200%;
+    object-fit: cover;
+}
+
+.details .recentcustomer table tr:hover td h4 span,
+.details .recentcustomer table tr:hover {
+    background: #03a9f4;
+    color: #fff;
+}
+
+.details .recentcustomer table tr td {
+    padding: 10px 10px;
+}
+
+.details .recentcustomer table tr td h4 {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2em;
+}
+
+.details .recentcustomer table tr td h4 span {
+    font-size: 14px;
+    color: #999;
+    line-height: 1.2em;
+}
+
+@media (max-width:992px) {
+    .dashnavigation {
+        left: -300px;
+    }
+
+    .dashnavigation.dashactive {
+        left: 0;
+        width: 300px;
+    }
+
+    .dashmain {
+        width: 100%;
+        left: 0;
+    }
+
+    .dashmain.dashactive {
+        width: calc(100% - 300px);
+        left: 300px;
+    }
+
+    .cardbox {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .details {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .cardheader h2 {
+        font-weight: 600;
+        font-size: 18px;
+    }
+
+    .details .recentorder {
+        overflow-x: auto;
+    }
+
+    .details .recentorder table {
+        width: 100%;
+    }
+
+    .dashnavigation {
+        width: 100%;
+        left: -100%;
+        z-index: 1000;
+    }
+
+    .dashnavigation.dashactive {
+        width: 75%;
+        left: 0;
+    }
+
+    .dashtoggle.dashactive {
+        z-index: 10000;
+        right: 0;
+        left: initial;
+        position: fixed;
+    }
+
+    .dashtoggle.dashactive::before {
+        color: #fff;
+    }
+
+    .dashmain,
+    .dashmain.dashactive {
+        width: 100%;
+        left: 0;
+    }
+}
+
+.pass {
+    position: relative;
+    width: 100%;
+    padding: 30px;
+    display: grid;
+    grid-gap: 20px;
+    padding-top: 30px;
+}
+
+.pass form {
+    position: relative;
+    min-height: 530px;
+    background: #fff;
+    padding: 7% 17%;
+}
+
+.pass form input {
+    width: 75%;
+    height: 15%;
+    position: relative;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    margin: 20px;
+    text-align: center;
+    border-radius: 50px;
+    font-size: large;
+}
+
+.dashlink {
+    color: #b80b0bd3;
+    font-size: 15px;
+    margin-top: 25px;
+    border-bottom: 1px solid #B4B4B4;
+    text-decoration: none;
+    line-height: 2;
+    margin-left: 25%;
+}
+
+.dashsubmit {
+    width: 200px;
+    height: 55px;
+    border-radius: 27.5px;
+    margin-top: 25px;
+    margin-left: 24%;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1.15px;
+    color: #fff;
+    background: #03a9f4;
+    border: 2px solid #FDFDFD;
+    outline: none;
+}

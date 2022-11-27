@@ -1,0 +1,57 @@
+CREATE TABLE `id18898674_dealsouq`.`categories` ( `categories_id` INT NOT NULL AUTO_INCREMENT , `categories_name` VARCHAR(255) NOT NULL , `categories_img` TEXT NOT NULL , `categories_desc` VARCHAR(255) NOT NULL , PRIMARY KEY (`categories_id`)) ENGINE = InnoDB;
+
+
+CREATE TABLE `id18898674_dealsouq`.`users` ( `user_id` INT(255) NOT NULL AUTO_INCREMENT , `name` VARCHAR(255) NOT NULL , `username` VARCHAR(255) NOT NULL , `email` VARCHAR(255) NOT NULL , `phone` VARCHAR(255) NOT NULL , `password` VARCHAR(255) NOT NULL , `type` VARCHAR(255) NOT NULL , PRIMARY KEY (`user_id`, `username`, `email`, `phone`)) ENGINE = InnoDB;
+
+
+CREATE TABLE `id18898674_dealsouq`.`stores` ( `store_id` INT(255) NOT NULL AUTO_INCREMENT , `store_name` VARCHAR(255) NOT NULL , `store_img` TEXT NOT NULL , `store_desc` VARCHAR(255) NOT NULL , `categories_id` INT(255) NOT NULL , `user_id` INT(255) NOT NULL , PRIMARY KEY (`store_id`)) ENGINE = InnoDB;
+
+alter TABLE stores
+ADD CONSTRAINT cat_id
+ FOREIGN KEY (`categories_id`) 
+ REFERENCES categories (`categories_id`);
+
+alter TABLE stores
+ADD CONSTRAINT us_id
+ FOREIGN KEY (`user_id`) 
+ REFERENCES users(`user_id`);
+
+CREATE TABLE `id18898674_dealsouq`.`items` ( `item_id` INT(255) NOT NULL AUTO_INCREMENT , `item_name` VARCHAR(255) NOT NULL , `item_desc` VARCHAR(255) NOT NULL , `item_price` VARCHAR(255) NOT NULL , `item_img` VARCHAR(255) NOT NULL , `item_status` VARCHAR(255) NOT NULL , `store_id` INT(255) NOT NULL , PRIMARY KEY (`item_id`)) ENGINE = InnoDB;
+
+alter TABLE items
+ ADD CONSTRAINT s_id
+ FOREIGN KEY (`store_id`) 
+REFERENCES stores(`store_id`)
+
+
+CREATE TABLE `id18898674_dealsouq`.`contact_us` ( `id` INT(255) NOT NULL AUTO_INCREMENT , `name` VARCHAR(255) NOT NULL , `email` VARCHAR(255) NOT NULL , `phone` VARCHAR(255) NOT NULL , `title` VARCHAR(255) NOT NULL , `massege` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+
+CREATE TABLE `id18898674_dealsouq`.`admin` ( `admin_id` INT(255) NOT NULL AUTO_INCREMENT , `username` VARCHAR(255) NOT NULL , `password` VARCHAR(255) NOT NULL , PRIMARY KEY (`admin_id`, `username`)) ENGINE = InnoDB;
+
+
+CREATE TABLE `id18898674_dealsouq`.`cart` ( `cart_id` INT(255) NOT NULL AUTO_INCREMENT , `user_id` INT(255) NOT NULL , `store_id` INT(255) NOT NULL , `item_id` INT(255) NOT NULL , `price` FLOAT NOT NULL , PRIMARY KEY (`cart_id`)) ENGINE = InnoDB;
+
+alter TABLE cart
+ADD CONSTRAINT u_id
+ FOREIGN KEY (`user_id`) 
+ REFERENCES users (`user_id`);
+
+
+alter TABLE cart
+ADD CONSTRAINT ss_id
+ FOREIGN KEY (`store_id`) 
+ REFERENCES stores (`store_id`);
+
+
+alter TABLE cart
+ADD CONSTRAINT i_id
+ FOREIGN KEY (`item_id`) 
+ REFERENCES items (`item_id`);
+
+
+ add age 
+ ALTER TABLE `users` ADD `age` VARCHAR(255) NOT NULL AFTER `phone`;
+
+ add location
+ ALTER TABLE `stores` ADD `store_loc` VARCHAR(255) NOT NULL AFTER `store_name`;
